@@ -40,7 +40,7 @@ for url in urls:
     for quote in quotes:
         author = quote.find("a", class_="bq-aut")
         quote = quote.find("div", class_="")
-        with open('test.csv', mode='a', newline='') as file:
+        with open('brainyquotes.csv', mode='a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow([quote.text.strip(), author.text.strip()])
     print(f'Scrapped {url} 😊')
@@ -65,7 +65,7 @@ for url in urls:
             author = quote.find("a", class_="bq-aut")
             quote = quote.find("div", class_="")
             # Write the quote and author to a CSV file
-            with open('test.csv', mode='a', newline='') as file:
+            with open('brainyquotes.csv', mode='a', newline='') as file:
                 writer = csv.writer(file)
                 writer.writerow([quote.text.strip(), author.text.strip()])
         print(f'Scrapped {pagination_url} 😊')

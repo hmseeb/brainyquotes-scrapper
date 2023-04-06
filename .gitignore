@@ -7,3 +7,6 @@ test.csv
 
 #not me ignoring .gitignore
 **/.git
+
+#ignore jupyternb
+source.ipynb
