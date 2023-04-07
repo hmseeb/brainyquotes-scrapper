@@ -38,7 +38,7 @@ for url in urls_list:
         scrapped_authors.append(author.text.strip())
         scrapped_quotes.append(quote_text.text.strip())
     print(f'Scrapped {url} 😊')
-    pagination_counter = 15
+    pagination_counter = 2
     while (1):
         pagination_url = url + '_' + str(pagination_counter)
         try:
