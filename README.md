@@ -1,10 +1,8 @@
 <br/>
 <p align="center">
   <a href="https://github.com/hmseeb/brainyquotes-scraper">
-    <img src="https://pbs.twimg.com/profile_images/880126983148978176/4tjSdgFt_400x400.jpg" alt="Logo" width="80" height="80">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Brainy&nbsp;Scrapper&fontSize=80&fontAlignY=35&animation=twinkling&fontColor=gradient" alt="Logo">
   </a>
-
-  <h3 align="center">BrainyQuotes Scrapper</h3>
 
   <p align="center">
     Unleash the Power of Quotes with BrainyQuote Scrapper - Your Ultimate Inspiration Companion!
@@ -62,7 +60,7 @@ cd brainyquotes-scrapper
 Run the script using the following command:
 
 ```sh
-python main.py
+python source.py
 ```
 
 ## Roadmap
