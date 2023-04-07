@@ -72,7 +72,7 @@ for url in urls_list:
     }
 
     df = pd.DataFrame(data)
-    # * If else
+
     if choice == 'y':
         if path.isfile('scrapped/categories/' + titles_list[progress-1] + '.csv'):
             df.to_csv('scrapped/categories/' +
@@ -86,9 +86,7 @@ for url in urls_list:
                       mode='a', header=False, index=False)
         else:
             df.to_csv('scrapped/brainyquotes.csv', mode='a', index=False)
-    # ^ Ternary
-    # df.to_csv('scrapped/categories/' + titles_list[progress-1] + '.csv', header=False, index=False) if choice == 'y' and path.isfile('scrapped/categories/' + titles_list[progress-1] + '.csv') else df.to_csv('scrapped/categories/' + titles_list[progress -
-    #                                                                                                                                                                                                                                                 1] + '.csv', index=False) if choice == 'y' else df.to_csv('scrapped/brainyquotes.csv', mode='a', header=False, index=False) if path.isfile('scrapped/brainyquotes.csv') else df.to_csv('scrapped/brainyquotes.csv', mode='a', index=False)
+
     progress += 1
     calculated_progress = progress / len(urls_list) * 100
 
