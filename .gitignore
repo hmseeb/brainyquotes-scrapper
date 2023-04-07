@@ -4,9 +4,8 @@
 
 #Ignore test files
 test.csv
-
-#not me ignoring .gitignore
-**/.git
+test.py
+to_csv.csv
 
 #ignore jupyternb
 source.ipynb
