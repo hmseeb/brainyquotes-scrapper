@@ -1,4 +1,4 @@
-import os
+from os import path
 import pandas as pd
 from bs4 import BeautifulSoup
 import requests
@@ -11,7 +11,7 @@ category_links = soup.find_all("a", class_="topicIndexChicklet")
 titles_list = []
 urls_list = []
 quotes_list = []
-
+choice = input('Press y is you want seperate csv\'s for each category: ')
 for category_link in category_links:
     title = category_link.find("span", class_="topicContentName").text.strip()
     url = 'https://www.brainyquote.com' + category_link['href']
@@ -38,7 +38,7 @@ for url in urls_list:
         scrapped_authors.append(author.text.strip())
         scrapped_quotes.append(quote_text.text.strip())
     print(f'Scrapped {url} 😊')
-    pagination_counter = 2
+    pagination_counter = 15
     while (1):
         pagination_url = url + '_' + str(pagination_counter)
         try:
@@ -72,10 +72,23 @@ for url in urls_list:
     }
 
     df = pd.DataFrame(data)
-    if os.path.isfile('brainyquotes.csv'):
-        df.to_csv('brainyquotes.csv', mode='a', header=False, index=False)
+    # * If else
+    if choice == 'y':
+        if path.isfile('scrapped/categories/' + titles_list[progress-1] + '.csv'):
+            df.to_csv('scrapped/categories/' +
+                      titles_list[progress-1] + '.csv', header=False, index=False)
+        else:
+            df.to_csv('scrapped/categories/' +
+                      titles_list[progress-1] + '.csv', index=False)
     else:
-        df.to_csv('brainyquotes.csv', index=False, quoting=None)
+        if path.isfile('scrapped/brainyquotes.csv'):
+            df.to_csv('scrapped/brainyquotes.csv',
+                      mode='a', header=False, index=False)
+        else:
+            df.to_csv('scrapped/brainyquotes.csv', mode='a', index=False)
+    # ^ Ternary
+    # df.to_csv('scrapped/categories/' + titles_list[progress-1] + '.csv', header=False, index=False) if choice == 'y' and path.isfile('scrapped/categories/' + titles_list[progress-1] + '.csv') else df.to_csv('scrapped/categories/' + titles_list[progress -
+    #                                                                                                                                                                                                                                                 1] + '.csv', index=False) if choice == 'y' else df.to_csv('scrapped/brainyquotes.csv', mode='a', header=False, index=False) if path.isfile('scrapped/brainyquotes.csv') else df.to_csv('scrapped/brainyquotes.csv', mode='a', index=False)
     progress += 1
     calculated_progress = progress / len(urls_list) * 100
 
