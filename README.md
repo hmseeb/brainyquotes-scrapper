@@ -32,13 +32,13 @@ Quotations Scraper is a Python script that uses web scraping techniques to extra
 
 ### Prerequisites
 
-Python 3.x installed on your machine
+Python 3 installed on your machine
 The following Python packages installed: BeautifulSoup, Requests
 
 * pip
 
 ```sh
-pip install requests && pip install bs4
+pip install -r requirements.txt
 ```
 
 ### Installation
@@ -60,7 +60,7 @@ cd brainyquotes-scrapper
 Run the script using the following command:
 
 ```sh
-python source.py
+python main.py
 ```
 
 ## Roadmap
